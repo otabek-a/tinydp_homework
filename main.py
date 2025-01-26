@@ -1,7 +1,20 @@
 from tinydb import TinyDB
 import requests
-from shopbase import shop
+
+from shopbase import shopbase
 shM=TinyDB('shop.json')
+for i in shopbase:
+    for item in shopbase[i]:
+        shM.insert(item)
+
+
+
+
+
+
+
+
+
 doc=TinyDB('db.json')
 db=TinyDB('tabel.json')
 user={
@@ -27,4 +40,3 @@ r = response.json()
 for i in r:
     doc.insert({'fullname':f'{i}'})
 
-shM.insert(shop)
